@@ -19,15 +19,16 @@ public class Main {
         Driver polMccartney = new Driver("Pol Mccartney", "K200-546-176-01");
         Driver georgeHarrison = new Driver("George Harrison", "W414-842-763-22");
         Driver ringoStarr = new Driver("Ringo Starr", "A134-746-978-75");
-        Driver stuartSutcliffe = new Driver(4L,"Stuart Sutcliffe", "F22-11-33-34");
+
         driverService.create(johnLennon);
         driverService.create(polMccartney);
         driverService.create(georgeHarrison);
         driverService.create(ringoStarr);
 
-        driverService.delete(1L);
-        driverService.update(stuartSutcliffe);
-        System.out.println(driverService.get(2L));
+        driverService.delete(ringoStarr.getId());
+        georgeHarrison.setLicenseNumber("E111-232-432-12");
+        driverService.update(georgeHarrison);
+        System.out.println(driverService.get(georgeHarrison.getId()));
         System.out.println(driverService.getAll());
 
         Manufacturer bmw = new Manufacturer("BMW", "GERMANY");
@@ -46,6 +47,5 @@ public class Main {
         manufacturerService.update(mazda);
         System.out.println(manufacturerService.get(21L));
         System.out.println(manufacturerService.getAll());
-
     }
 }
